@@ -51,7 +51,7 @@ public class DefaultPartitioner<T> implements Partitioner<T> {
 
   @Override
   public String generatePartitionedPath(String topic, String encodedPartition) {
-    String topic_replaced = topic.replaceAll("[0-9]+$", "version=$0").replace("-", "_").replace(".", "/");
+    String topic_replaced = topic.replaceAll("[0-9]+$", "partition_version=$0").replace("-", "_").replace(".", "/");
     return topic_replaced + delim + encodedPartition;
   }
 
